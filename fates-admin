@@ -4908,12 +4908,12 @@ AddCommand("loopfling", {"loopto"}, "loop teleports yourself to the other charac
 end)
 
 AddCommand("unloopfling", {"unloopto"}, "removes loop teleportation to the other character", {}, function(Caller)
-    local Looping = LoadCommand("loopgoto").CmdEnv;
+    local Looping = LoadCommand("loopfling").CmdEnv;
     if (not next(Looping)) then
         return "you aren't loop teleporting to anyone"
     end
-    DisableAllCmdConnections("loopgoto");
-    return "loopgoto disabled"
+    DisableAllCmdConnections("loopfling");
+    return "loopfling disabled"
 end)
 
 AddCommand("tweento", {"tweengoto"}, "tweens yourself to the other person", {3, "1"}, function(Caller, Args)
