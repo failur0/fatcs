@@ -4895,7 +4895,7 @@ AddCommand("goto", {"to"}, "teleports yourself to the other character", {3, "1"}
     end
 end)
 
-AddCommand("loopgoto", {"loopto"}, "loop teleports yourself to the other character", {3, "1"}, function(Caller, Args, CEnv)
+AddCommand("loopfling", {"loopto"}, "loop teleports yourself to the other character", {3, "1"}, function(Caller, Args, CEnv)
     local Target = GetPlayer(Args[1])[1]
     local Connection = CConnect(Heartbeat, function()
         GetRoot().CFrame = GetRoot(Target).CFrame * CFrameNew(0, 0, 2);
@@ -4907,7 +4907,7 @@ AddCommand("loopgoto", {"loopto"}, "loop teleports yourself to the other charact
     return "now looping to " .. Target.name
 end)
 
-AddCommand("unloopgoto", {"unloopto"}, "removes loop teleportation to the other character", {}, function(Caller)
+AddCommand("unloopfling", {"unloopto"}, "removes loop teleportation to the other character", {}, function(Caller)
     local Looping = LoadCommand("loopgoto").CmdEnv;
     if (not next(Looping)) then
         return "you aren't loop teleporting to anyone"
